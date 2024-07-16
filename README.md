@@ -29,7 +29,7 @@ How about:
 ```py
 op.len(
     sets.natural.where.all(
-        op.set(digits, preserve_order=True) == op.list(digits),
+        recipes.no_repetition(digits),
         op.len(digits.filter("% 2")) == 3,
         op.len(digits.filterfalse("% 2")) == 2,
     ),
