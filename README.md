@@ -73,4 +73,4 @@ op.len(
 )
 ```
 
-directly states that the number of digits must be either 6 (3 odd + 3 even) or 12 (6 odd + 6 even).
+absolutely implies that the number of digits must be either 6 (3 odd + 3 even) or 12 (6 odd + 6 even).
