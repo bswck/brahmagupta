@@ -29,11 +29,11 @@ How about:
 ```py
 # digits are contextual
 op.len(
-    sets.natural.where(
+    sets.natural.where_all(
         op.set(digits, preserve_order=True) == op.list(digits),
         op.len(digits.filter("% 2")) == 3,
         op.len(digits.filterfalse("% 2")) == 2,
-    )
+    ),
 )
 ```
 
@@ -53,6 +53,23 @@ The machine can simply identify the nature of the problem.
 - The first conclusion it should draw is that all the numbers are computable,
 they are finite, and we can fit all of them in memory.
 
-- 
+- The number of digits is always 5 because sets `filter("% 2")` and `filterfalse("% 2")` make up the whole number and their expected lengths add up to 5.
 
+Similar conclusions could also be drawn from more complex set of constraints, for instance
 
+```py
+where_all(
+    op.any(
+        op.all(
+            op.len(digits.filter("% 2")) == 3,
+            op.len(digits.filterfalse("% 2")) == 3,
+        ),
+        op.all(
+            op.len(digits.filter("% 2")) == 6,
+            op.len(digits.filterfalse("% 2")) == 6,
+        )
+    ),
+)
+```
+
+directly states that the number of digits must be either 6 (3 odd + 3 even) or 12 (6 odd + 6 even).
