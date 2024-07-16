@@ -29,7 +29,7 @@ How about:
 ```py
 # digits are contextual
 op.len(
-    sets.natural.where_all(
+    sets.natural.where.all(
         op.set(digits, preserve_order=True) == op.list(digits),
         op.len(digits.filter("% 2")) == 3,
         op.len(digits.filterfalse("% 2")) == 2,
@@ -58,7 +58,7 @@ they are finite, and we can fit all of them in memory.
 Similar conclusions could also be drawn from more complex set of constraints, for instance
 
 ```py
-where_all(
+where.all(
     op.any(
         op.all(
             op.len(digits.filter("% 2")) == 3,
