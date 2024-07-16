@@ -6,6 +6,7 @@ authors = [
     { name = "bswck", email = "bartoszpiotrslawecki@gmail.com" }
 ]
 dependencies = [
+    "slothy>=1.0.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

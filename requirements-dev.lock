@@ -23,6 +23,8 @@ pluggy==1.5.0
     # via pytest
 pytest==8.2.2
 ruff==0.5.2
+slothy==1.0.0
+    # via brahmagupta
 tomli==2.0.1
     # via mypy
     # via pytest
