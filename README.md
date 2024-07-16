@@ -67,7 +67,7 @@ where_all(
         op.all(
             op.len(digits.filter("% 2")) == 6,
             op.len(digits.filterfalse("% 2")) == 6,
-        )
+        ),
     ),
 )
 ```
