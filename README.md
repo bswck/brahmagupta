@@ -27,7 +27,6 @@ Trying to solve this problem 100% by machine, we need to serialize it in a machi
 How about:
 
 ```py
-# digits are contextual
 op.len(
     sets.natural.where.all(
         op.set(digits, preserve_order=True) == op.list(digits),
@@ -58,17 +57,19 @@ they are finite, and we can fit all of them in memory.
 Similar conclusions could also be drawn from more complex set of constraints, for instance
 
 ```py
-where.all(
-    op.any(
-        op.all(
-            op.len(digits.filter("% 2")) == 3,
-            op.len(digits.filterfalse("% 2")) == 3,
+op.len(
+    sets.natural.where.all(
+        op.any(
+            op.all(
+                op.len(digits.filter("% 2")) == 3,
+                op.len(digits.filterfalse("% 2")) == 3,
+            ),
+            op.all(
+                op.len(digits.filter("% 2")) == 6,
+                op.len(digits.filterfalse("% 2")) == 6,
+            ),
         ),
-        op.all(
-            op.len(digits.filter("% 2")) == 6,
-            op.len(digits.filterfalse("% 2")) == 6,
-        ),
-    ),
+    )
 )
 ```
 
