@@ -12,24 +12,47 @@ This project aims to answer why, and, more importantly, consider the question:
 
 ## Examples
 
+### Query 1. Combinatorics.
+
 For instance, imagine this exam problem:
 
 > Let's consider all natural numbers in which no digit repeats, exactly three digits are odd, and exactly two digits are even. Find the number of such numbers.
 
-Here, we have a precisely described outcome: a natural integer that represents the number of all natural numbers matching the constraints of . 
+Here, we have a precisely described outcome: a natural integer that represents the number of all natural numbers matching the constraints that are:
+- no digit in the number repeats,
+- 3 digits ONLY are odd,
+- 2 digits ONLY are even.
 
 Trying to solve this problem 100% by machine, we need to serialize it in a machine-understandable way.
 How about:
 
 ```py
+# digits are contextual
 op.len(
     sets.natural.where(
-        op.set(ctx.digits, preserve_order=True) == op.list(ctx.digits),
-        # Partial operator syntax: equivalent to `filter(2 .__rmod__)`
-        op.len(ctx.digits.filter("% 2")) == 3,
-        op.len(ctx.digits.filterfalse("% 2")) == 2,
+        op.set(digits, preserve_order=True) == op.list(digits),
+        op.len(digits.filter("% 2")) == 3,
+        op.len(digits.filterfalse("% 2")) == 2,
     )
 )
 ```
 
+This description of the problem arises from the following assumptions:
+- Digits of the number are finite.
+- To check if numbers don't repeat, we convert them to a set, preserving order, and check if they equal
+their list form. That would mean no digit ever repeats.
+- All odd numbers fulfill the `k % 2` constraint, where `k` is the number in question.
+- All even numbers fulfill the `not (k % 2)` constraint, where `k` is the number in question.
+
 More to come in this description later.
+
+#### Machine Digestion of the Query
+
+The machine can simply identify the nature of the problem.
+
+- The first conclusion it should draw is that all the numbers are computable,
+they are finite, and we can fit all of them in memory.
+
+- 
+
+
