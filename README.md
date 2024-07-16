@@ -72,3 +72,9 @@ op.len(
 ```
 
 absolutely implies that the number of digits must be either 6 (3 odd + 3 even) or 12 (6 odd + 6 even).
+
+
+## Guidelines
+
+We are bounded to implementing [concepts included in the core curriculum for general secondary schools of Poland](https://cke.gov.pl/images/_EGZAMIN_MATURALNY_OD_2023/podstawa_programowa/matematyka.pdf) (PL). 
+This library ought to treat the curriculum as a reference standard and every logical unit providing new functionality should reference the proper part of that document to prove its compliance with the "standard".
