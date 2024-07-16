@@ -22,10 +22,13 @@ Trying to solve this problem 100% by machine, we need to serialize it in a machi
 How about:
 
 ```
-NATURAL.where(
-    Digits.odd().count() == 3,
-    Digits.even().count() == 2,
-).count()
+op.len(
+    sets.natural.where(
+        op.set(ctx.digits, preserve_order=True) == op.list(ctx.digits),
+        op.len(ctx.digits.filter(2 .__rmod__)) == 3,
+        op.len(ctx.digits.filterfalse(2 .__rmod__)) == 2,
+    )
+)
 ```
 
 More to come in this description later.
