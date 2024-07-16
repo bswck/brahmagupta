@@ -25,8 +25,9 @@ How about:
 op.len(
     sets.natural.where(
         op.set(ctx.digits, preserve_order=True) == op.list(ctx.digits),
-        op.len(ctx.digits.filter(2 .__rmod__)) == 3,
-        op.len(ctx.digits.filterfalse(2 .__rmod__)) == 2,
+        # Partial operator syntax: equivalent to `filter(2 .__rmod__)`
+        op.len(ctx.digits.filter("% 2")) == 3,
+        op.len(ctx.digits.filterfalse("% 2")) == 2,
     )
 )
 ```
