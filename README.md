@@ -69,7 +69,7 @@ op.len(
                 op.len(digits.filterfalse("% 2")) == 6,
             ),
         ),
-    )
+    ),
 )
 ```
 
