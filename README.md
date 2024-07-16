@@ -21,7 +21,7 @@ Here, we have a precisely described outcome: a natural integer that represents t
 Trying to solve this problem 100% by machine, we need to serialize it in a machine-understandable way.
 How about:
 
-```
+```py
 op.len(
     sets.natural.where(
         op.set(ctx.digits, preserve_order=True) == op.list(ctx.digits),
