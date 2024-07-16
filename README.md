@@ -38,8 +38,7 @@ op.len(
 
 This description of the problem arises from the following assumptions:
 - Digits of the number are finite.
-- To check if numbers don't repeat, we convert them to a set, preserving order, and check if they equal
-their list form. That would mean no digit ever repeats.
+- There exists a recipe to examine for repetition in the digits.
 - All odd numbers fulfill the `k % 2` constraint, where `k` is the number in question.
 - All even numbers fulfill the `not (k % 2)` constraint, where `k` is the number in question.
 
