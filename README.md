@@ -29,7 +29,7 @@ How about:
 ```py
 op.len(
     sets.natural.where.all(
-        recipes.no_repetition(digits),
+        op.none(digit.seen for digit in digits),
         op.len(digits.filter("% 2")) == 3,
         op.len(digits.filterfalse("% 2")) == 2,
     ),
@@ -38,7 +38,6 @@ op.len(
 
 This description of the problem arises from the following assumptions:
 - Digits of the number are finite.
-- There exists a recipe to examine for repetition in the digits.
 - All odd numbers fulfill the `k % 2` constraint, where `k` is the number in question.
 - All even numbers fulfill the `not (k % 2)` constraint, where `k` is the number in question.
 
